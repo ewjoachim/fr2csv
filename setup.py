@@ -37,7 +37,7 @@ NAME = "fr2csv"
 with open(path.join(path.dirname(__file__), "README.md")) as file_handler:
     DESCRIPTION = file_handler.read()
 
-WEBSITE = ""
+WEBSITE = "https://github.com/ewjoachim/fr2csv"
 
 # Technical parameters that should be more or less the same for every projects
 CLASSIFIERS = [
