@@ -39,7 +39,7 @@ WEBSITE = "https://github.com/ewjoachim/fr2csv"
 
 # Technical parameters that should be more or less the same for every projects
 CLASSIFIERS = [
-    'License :: MIT License',
+    'License :: OSI Approved :: MIT License',
     'Programming Language :: Python :: 2.7',
 ]
 
