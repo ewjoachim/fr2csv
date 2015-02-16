@@ -24,7 +24,6 @@
 from __future__ import unicode_literals
 
 # Python System imports
-from os import path
 
 # Third-party imports
 from setuptools import setup, find_packages
@@ -34,8 +33,7 @@ from setuptools import setup, find_packages
 # Technicals parameters you need to set
 NAME = "fr2csv"
 
-with open(path.join(path.dirname(__file__), "README.md")) as file_handler:
-    DESCRIPTION = file_handler.read()
+DESCRIPTION = "Reads French localized AND normal CSVs, ouputs normal CSVs"
 
 WEBSITE = "https://github.com/ewjoachim/fr2csv"
 
