@@ -25,4 +25,4 @@ the csv.DictReader used internally, it's myreader.dict_reader
 Run tests
 =========
 
-python -m unittest .
+python -m unittest test
