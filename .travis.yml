@@ -1,4 +1,4 @@
-install: pip install .
+install: "sudo pip install ."
 script: "python -m unittest test"
 python:
   - "2.7"
