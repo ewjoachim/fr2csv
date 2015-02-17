@@ -36,7 +36,10 @@ import six
 
 
 class ExcelWithSemicolon(csv.excel):
-    delimiter = b";"
+    if six.PY2:
+        delimiter = b";"
+    else:
+        delimiter = ";"
 
 
 class AgnosticReader(object):
@@ -59,6 +62,8 @@ class AgnosticReader(object):
     def __init__(self, csvfile, *args, **kwargs):
         if "dialect" not in kwargs:
             dialect = csv.excel
+
+            csvfile = six.StringIO(csvfile.read())
 
             beginning = csvfile.read(1024)
             csvfile.seek(0)

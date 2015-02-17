@@ -24,43 +24,21 @@
 from __future__ import unicode_literals
 
 # Python System imports
+from unittest import TestCase
+import subprocess
 
-# Third-party imports
-from setuptools import setup, find_packages
 
-# Relative imports
+class Fr2CsvTest(TestCase):
+    def test_cli_stdin_stdout(self):
+        """
+        Tests that Command Line Interface produces the right result on a
+        simple test.
+        """
+        process = subprocess.Popen(
+            ["fr2csv", "-", "-"],
+            stdout=subprocess.PIPE, stdin=subprocess.PIPE,
+            stderr=subprocess.STDOUT
+        )
+        stdout = process.communicate(input=b"""a;b\n1,2;azerty""")[0]
 
-# Technicals parameters you need to set
-NAME = "fr2csv"
-
-DESCRIPTION = "Reads French localized AND normal CSVs, ouputs normal CSVs"
-
-WEBSITE = "https://github.com/ewjoachim/fr2csv"
-
-# Technical parameters that should be more or less the same for every projects
-CLASSIFIERS = [
-    'License :: OSI Approved :: MIT License',
-    'Programming Language :: Python :: 2.7',
-]
-
-AUTHORS = [
-    ("Joachim Jablon", "ewjoachim@gmail.com"),
-]
-
-requirements = ["six"]
-
-setup(
-    name=NAME,
-    version="1.0.1",
-    author=", ".join([author[0] for author in AUTHORS]),
-    author_email=", ".join([author[1] for author in AUTHORS]),
-    url=WEBSITE,
-    packages=find_packages(),
-    description=DESCRIPTION,
-    include_package_data=True,
-    classifiers=CLASSIFIERS,
-    install_requires=requirements,
-    entry_points={
-        'console_scripts': ['fr2csv=fr2csv:main'],
-    },
-)
+        self.assertEqual(stdout, b"""a,b\r\n1.2,azerty\r\n""")
