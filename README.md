@@ -11,7 +11,7 @@ normal CSV file (as in RFC 4180).
 CLI Usage :
 ===========
 
-    fr2csv.py <inputfile> <outputfile>
+    fr2csv <inputfile> <outputfile>
 
 For both in and out, "-" means standard in/output.
 
